@@ -4,7 +4,8 @@
 
 #### Brute force
   - $O(m*n)$
-  - Use indexOf
+  - Use indexOf() method. e.g To serach for s1='abc' in s2='fyjgihgkabckhgi' you can write s2.indexOf(s1)
+  - Returns first index of s1 in s2. Can also use lastIndexOf() method to get last Index of occurence 
   - Note: indexOf does not use the below algorithms (https://stackoverflow.com/questions/19543547/why-does-string-indexof-not-use-kmp)
 
 #### Rabin Karp
