@@ -1,13 +1,17 @@
 # Graphs
 
+### Note: While performing traversals always consider that the graph might have disconnected components.
+<img width="925" alt="Screenshot 2025-04-13 at 5 14 12 PM" src="https://github.com/user-attachments/assets/d043db93-5935-4640-96c8-6f078d6c6d8f" />
+
 ### BFS
    - $O(V+E)$
    - Print a node then push all unvisited neighbours into a queue (mark them visited before pushing), repeat until queue is empty
 
-
 ### DFS
   - $O(V+E)$
-  - Maintain a visited array, loop on all nodes > recurse on all neighbours
+  - Maintain a visited array and a queue. Initialize with 1st node
+  - Loop on all nodes and push each of it's neighbour to queue
+  - Make visited[neighbour]=true while pushing to queue
 
 <br>
 
@@ -32,15 +36,55 @@
 
 ### Cycle Detection
 
-#### DFS
-  - Do DFS, also maintain a recursive stack array to detect back edges (slight trick in recursive call condition)
+#### Undirected Graph:
+##### DFS
+   - SC: O(N), TC: O(N+2E)
+   - Maintain a parent variable in the recursive call
+   - Mark curr node as visited in each recursive call
+   - Traverse neighbours, if any neighbour is visited and not parent, its a cycle
+##### BFS
+   - TC: O(V+E), SC: O(V)
+   - Starts traversal in 2 diff directions from the same node.
+   - If you arrive at a node a 2nd time, you have a cycle
+   - Maintain curr node and it's parent in the queue. Maintain visited set.
+   - For each node popped from queue, traverse it's neighbours, skipping the parent. Mark each neighbour as visited and add to queue
+   - If any neighbour has been visited previously, cycle=true
 
-#### BFS
+#### Directed graph:
+##### DFS
+   - Maintain 2 arrays visited and pathVisited
+   - pathVisited is to check if we have visited a particular node in the same path
+   - For each recursive call, mark the node as visited and visit it's neighbors. If any neighbor is visited and also pathVisited, we have a cycle
+   - Mark pathVisited[currNode]=false when recursive call for that node ends and cycle is not found
+
+```java
+private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[], int pathVis[]) {
+        vis[node] = 1; 
+        pathVis[node] = 1; 
+        
+        // traverse for adjacent nodes 
+        for(int it : adj.get(node)) {
+            // when the node is not visited 
+            if(vis[it] == 0) {
+                if(dfsCheck(it, adj, vis, pathVis) == true) 
+                    return true; 
+            }
+            // if the node has been previously visited
+            // but it has to be visited on the same path 
+            else if(pathVis[it] == 1) {
+                return true; 
+            }
+        }
+        
+        pathVis[node] = 0; 
+        return false; 
+    }
+```
+
+##### BFS
   - `Kahn's algo`
   - Cycle exists if length of output < total number of vertices
 
-#### Undirected Graph
-  - DFS, maintain a parent variable, if any neighbour is visited and not parent, its a cycle
 
 <br>
 
