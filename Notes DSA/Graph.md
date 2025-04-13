@@ -18,16 +18,26 @@
 ---
 ---
 
-### Topological Sort 
-
+### Topological Sort (Only for DAGs: Directed Acyclic Graph)
+   - Concept: An ordering in which if there exists an edge from u to v then u appears before v in the ordering
+   - Why only DAGs? Because in an undirected graph the above condition cannot be satistified
+   - Why not in cyclic graphs? If a cycle exists then u cannot always be before v in the ordering (go in circles)
+   - There can be multiple valid topological orderings for a graph 
+     
 #### Recursive
   - $O(V+E)$
-  - Do DFS, the last leaf node to be put into a stack first so it can be printed in last
+  - Do DFS, also maintain an extra stack and pass it to the recursive method
+  - Whenever the recursive call for a node ends (i.e. all the neighbours are visited), push the curr node to the extra stack
+  - This extra stack basically indicates that for any element at the top of the stack, all it's neighbours have been processed
+  - Pop the stack, so every element will come before it's neighbours
 
-#### Iterative
+#### Iterative (Kahn's Algo)
   - $O(V+E)$
-  - `Kahn's Algo`
-  - Indegree of vertices and queue, take nodes with 0 indegree first (no need for visited array)
+  - Calculate indegree of each node 
+  - Start by pushing indegree=0 nodes to queue (no need for visited array)
+  - For each node, traverse it's neighbours and reduce indegree of each neighbour by 1
+  - If any neighbour's indegree becomes 0, push it to queue
+  - When pushing to queue add this to result topoSort arrayList
 
 <br>
 
@@ -59,6 +69,7 @@
 
 ```java
 private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[], int pathVis[]) {
+        if(pathVis[node]==1) return false;
         vis[node] = 1; 
         pathVis[node] = 1; 
         
@@ -81,9 +92,8 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
     }
 ```
 
-##### BFS
-  - `Kahn's algo`
-  - Cycle exists if length of output < total number of vertices
+##### BFS (Use Kahn's algo)
+  - Cycle exists if length of topo sort obtained < total number of vertices
 
 
 <br>
