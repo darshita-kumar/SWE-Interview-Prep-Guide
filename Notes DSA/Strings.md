@@ -107,7 +107,7 @@ class Solution {
 ---
 ---
 
-### Tips
+### Tips & Notes
 
 - Using array of 26 characters instead of a hashmap is more time efficient
 - Use StringBuilder in case a string has to be altered frequently
@@ -115,3 +115,4 @@ class Solution {
   - reverse()
   - append()
   - All string methods are applicable to StringBuilder too
+- str.substring(start, end): start inedx is inclusive but end index is not. So substring(4,10) means 10th character will not be included in the result
