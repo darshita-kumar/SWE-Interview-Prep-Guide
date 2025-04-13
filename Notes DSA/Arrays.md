@@ -98,6 +98,10 @@ public static long maxSubarraySum(int[] arr, int n) {
 #### Sample questions
   - Merge overlapping subintervals (https://leetcode.com/problems/merge-intervals/description/)
   - Insert interval (https://leetcode.com/problems/insert-interval/description/) [Good question, see Binary Search approach in editorial]
+  - [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/description/) Same as finding max non overlapping intervals. Sort by end time and pick greedily
+  - [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/description/) : Hard, Heap is used, saw sol 
+  - [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/description/) sort intervals and have a min heap to get available room
+
 
 <br>
 
