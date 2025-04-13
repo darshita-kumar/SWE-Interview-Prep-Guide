@@ -1,7 +1,5 @@
 # Graphs
 
-- Last finished 14 Jan 2025
-
 ### BFS
    - $O(V+E)$
    - Print a node then push all unvisited neighbours into a queue (mark them visited before pushing), repeat until queue is empty
@@ -130,6 +128,22 @@
   - $O(E.logV)$
   - Uses disjoint sets union 
   - Idea is to sort all edges, add an edge if it does not create cycle. Mst size should be v-1 
+
+
+<br>
+
+---
+---
+
+#### Kosraju's Algo of strongly connected components
+
+
+<br>
+
+---
+---
+
+#### Bipartite graph
 
 
 <br>
