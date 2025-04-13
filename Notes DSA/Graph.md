@@ -44,7 +44,8 @@
 ---
 ---
 
-### Cycle Detection
+### Cycle Detection 
+   - Sample question: https://leetcode.com/problems/course-schedule/description/
 
 #### Undirected Graph:
 ##### DFS
@@ -101,7 +102,7 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
 ---
 ---
 
-### Shortest Path
+### Shortest Path Algos
 
 
 #### Dijkastra's Algo
