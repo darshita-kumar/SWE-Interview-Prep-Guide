@@ -125,9 +125,10 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
   - $O(E.logV)$  ~  $O(E.logE)$ 
   - Can use min heap to get the min dist node
 
-  - Algo:
+  ```
   - Keep dist array and init it as INT_MAX initially
   - With every node popped from the heap, for all it's neighbours if updated distance is better, update dist array and add to queue
+  ```
 
   - To print shortest path between 2 nodes:
   - Initialize & maintain a parent array with each parent[i]=i
@@ -141,9 +142,11 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
 
 #### Bellmanford Algo
 
-  - Single source shortest path
-  - Any kind of weight 
-  - $O(E.V)$
+   - Single source shortest path
+   - Helps you to detect negative weight cycles too.
+   - Works for Directed graphs. Make undirected graphs directed by treating each edge as both ways
+   - Edges can be given in any order
+   - $O(E.V)$
 
     ```
     Use dist[]: initialised as inf, 0 for src 
@@ -152,13 +155,15 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
             if(d[v] > d[u] + weight_u_v ) d[v] = d[u] + weight_u_v
     ```
 
-  - Can do one extra iteration, if weight is getting relaxed then there exist a negative weight cycle 
+  - Can do one extra iteration, if weight is getting relaxed then there exists a negative weight cycle 
 
 #### Floyd Warshall
 
   - $O(V^3)$
-  - Shortest path btw all vertex pairs 
-
+  - Shortest path btw all vertex pairs
+  - Helps detect negative weight cycle too
+  - dist[i][j] = Math.min(dist[i][j], dist[i][k]+[k][j]);
+  - Negative weight cycle: If at any point in the 3 loops, dist[i][i] < 0, then we have a negative weight cycle 
 
 <br>
 
