@@ -102,25 +102,36 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
 ---
 ---
 
+### Bipartite graphs
+   - Graphs where you can colour all nodes with 2 colours, and each node has a different colour than it's neighbors is a bipartite graph.
+   - Always possible for linear graphs with no cycles
+   - Graphs having an odd cycle length are never bipartite, even can be bipartite
+   - Can check using both BFS and DFS if graph is bipartite, maintain colour in visited itself
+   - Sample question: https://leetcode.com/problems/is-graph-bipartite/description/
+     
+<img width="1263" alt="Screenshot 2025-04-14 at 6 44 25 PM" src="https://github.com/user-attachments/assets/cfa15673-b804-4022-862c-45f395a19ecb" />
+
+<br>
+
+---
+---
+
 ### Shortest Path Algos
 
+#### Dijkastra's Algo (Directed/Undirected graph with weights)
 
-#### Dijkastra's Algo
-
-  - Single source shortest path
-  - Non negative weight
+  - Single source shortest path to all other nodes
+  - Non negative weight only as it will go into infinite loop
   - $O(E.logV)$  ~  $O(E.logE)$ 
+  - Can use min heap to get the min dist node
 
-    ```
-    Use dist[]: initialised as inf, 0 for src 
-    Use boolean fin[]: true for nodes whose dist is finalised
-    loop V-1 times:
-        take the node with smallest dist and not finalised yet 
-        make it finalised 
-        update distance of all its unfinalised neighbours if they can become smaller 
-    ```
+  - Algo:
+  - Keep dist array and init it as INT_MAX initially
+  - With every node popped from the heap, for all it's neighbours if updated distance is better, update dist array and add to queue
 
-  - Can use min heap to get the min dist node to improve time complexity 
+  - To print shortest path between 2 nodes:
+  - Initialize & maintain a parent array with each parent[i]=i
+  - Update parent every time dist is updated, backtrack it at the end to find nodes in shortest path
 
 #### Undirected graph with equal weight on all edges
   - Normal BFS and distance map
