@@ -214,14 +214,6 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
 ---
 ---
 
-#### Bipartite graph
-
-
-<br>
-
----
----
-
 ### Other topics
 
 - Articulation point and bridges:  O(V+E): Smart DFS 
