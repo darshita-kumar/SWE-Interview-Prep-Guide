@@ -194,7 +194,8 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
   - `Better`
   - $O(E.logV)$
   - Uses disjoint sets union 
-  - Idea is to sort all edges, add an edge if it does not create cycle. Mst size should be v-1 
+  - Idea is to sort all edges, add an edge if both vertices don't belong to the same component already. Mst size should be v-1 
+<img width="1355" alt="Screenshot 2025-04-15 at 9 17 56 AM" src="https://github.com/user-attachments/assets/9cc7f8d9-f4ae-4974-a7db-f1733c3db39b" />
 
 
 <br>
