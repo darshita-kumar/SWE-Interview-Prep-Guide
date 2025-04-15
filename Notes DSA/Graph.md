@@ -182,16 +182,12 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
   - Idea is to add a vertex in MST set then add the minimum weight edge that connects this set to rest of the graph 
 
       ```
-      Use key[]: initialised as inf, 0 for src 
-      Use boolean mst[]: true for nodes who are in mst 
-      Loop V times:
-          take the minimum key which is not yet included in mst set 
-          make mst[u] = true 
-          add its key to the result 
-          for all its unfinalised neighbours if edge_weight_uv is < key[v]: update key[v] = edge_weight_uv
+      Use MST list to keep track of edges in MST
+      Use boolean visited[]: will become true for nodes who are in mst 
+      Use priority queue based on edge weight. pq: int[] //0=edge weight, 1=v1 of edge 2=v2 of edge
+      For each node polled from the pq, check if not visited, then add edge to MST
+      For all it's unvisited neighbours add neighbour along with edge weight to pq
       ```
-
-  - Can use min heap to get the min key node to improve time complexity 
 
 #### Kruskal's Algo
 
@@ -207,6 +203,7 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
 ---
 
 #### Kosraju's Algo of strongly connected components
+- For minimum number of strongly connected components: Directed graph
 
 
 <br>
@@ -217,7 +214,6 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
 ### Other topics
 
 - Articulation point and bridges:  O(V+E): Smart DFS 
-- Kosaraju algo: For minimum number of strongly connected components: Directed graph
 - Network flow (usually not asked): Ford Fulkerson
 - Eulerian circuit: Reconstruct Itinerary
 
