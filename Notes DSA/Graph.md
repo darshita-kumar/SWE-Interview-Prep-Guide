@@ -204,8 +204,14 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
 ---
 
 #### Kosraju's Algo of strongly connected components
-- For minimum number of strongly connected components: Directed graph
-
+   - For minimum number of strongly connected components: Directed graph
+   ```
+   Get the topo sort of the graph using DFS (Sort all nodes based on finish time)
+   Reverse all the edges of the graph
+   Perform DFS on topo stack obtained from earlier:
+   Maintain a visited array. Each DFS call will complete traversal of 1 SCC
+   No. of times DFS is performed from main function = No. of SCCs
+   ```
 
 <br>
 
