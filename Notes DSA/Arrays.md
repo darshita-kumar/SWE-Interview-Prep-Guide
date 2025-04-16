@@ -108,6 +108,42 @@ public static long maxSubarraySum(int[] arr, int n) {
 ----
 ---
 
+### Difference array
+  - Useful article: https://medium.com/@ishankkatiyar162/understanding-difference-array-the-underrated-constant-time-range-update-algorithm-part-1-e432ada7f1f5
+  - Constant time range update query, useful for lazy computation
+  - Useful in cases like update all values in array index range (3, 10) by val=v
+  - Only efficient when there are only update queries and no fetch query (lazy computation)
+  - Sample snippet:
+
+  ```java
+  // Example we are given k queries in an int[] array queries
+          int[] differenceArray = new int[n];
+          // Process query
+          for (int queryIndex = 0; queryIndex < k; queryIndex++) {
+              int left = queries[queryIndex][0], right =
+                  queries[queryIndex][1], val = queries[queryIndex][2];
+  
+              // Process start and end of range
+              differenceArray[left] += val;
+              differenceArray[right + 1] -= val;
+          }
+
+        // calculating prefix sum of the array differenceArray
+        for (int i = 1; i < n; i++) {
+      		differenceArray[i] += differenceArray[i - 1];
+      	}
+      
+      	// adding all updates back to original array a
+      	for (int i = 0; i < n; i++) {
+      		a[i] += differenceArray[i];
+      	}
+  ```
+
+<br>
+
+----
+---
+
 ## Aman's notes:
 
 ### [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/description/) ⭐️
