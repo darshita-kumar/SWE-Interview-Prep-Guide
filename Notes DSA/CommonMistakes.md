@@ -1,0 +1,14 @@
+### Points to remember 
+  - Don't modify the given inputs in the code
+  - While calculating min, take default = INTEGER.MAX_VALUE and opposite while calculating max
+  - In tree questions, beware of NPE. Don't try to handle 2 levels down. Handle only cases at curr level and 1 level down
+  - Define base cases properly.
+  - Backtracking questions require removal of the curr node from the list after it's children are processed.
+  - Arrays are better over maps for fetching data, wherever possible.
+  - HashMaps are not sorted by keys. TreeMaps are
+  - Sets are sorted by nature
+  - Do not declare a Set<int[]>
+      - int[] does not implement comparator and set will maintain duplicate elements then.
+      - So adding a {1,2} twice is like adding 2 different elements to the set, as set won't be able to compare the newly added {1,2} and judge it as the same ele as earlier
+      - So set will allow duplicates
+      - Instead use Set<Pair> or a custom class which implements comparable
