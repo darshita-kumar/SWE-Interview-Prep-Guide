@@ -1,6 +1,41 @@
 # Trees
 
-- Last done 9 Dec 2024
+## Morris Tree Traversal
+- Form a temp thread from the inorder succcessor of a node to it's parent.
+- Ref: https://takeuforward.org/data-structure/morris-inorder-traversal-of-a-binary-tree/
+- Ref: https://takeuforward.org/data-structure/morris-preorder-traversal-of-a-binary-tree/
+- Helps obtain tree traversal with a SC of O(1)
+- Code for inorder:
+  ```java
+          class Solution {
+            public List<Integer> inorderTraversal(TreeNode root) {
+                // Morris inorder traversal
+                List<Integer> list = new ArrayList<>();
+                TreeNode curr = root;
+                while(curr != null) {
+                    if(curr.left == null) {
+                        list.add(curr.val);
+                        curr = curr.right;
+                    } else {
+                        TreeNode temp = curr.left;
+                        while(temp.right!=null && temp.right!=curr)
+                            temp = temp.right;
+                        if(temp.right == null) {
+                            temp.right = curr;  // form thread
+                            curr = curr.left;
+                        } else {
+                            // temp.right == curr
+                            temp.right = null; // erase thread
+                            list.add(curr.val); // left is processed
+                            curr = curr.right;
+                        }
+                    }
+                }
+                return list;
+            }
+        }
+  ```
+  - For preorder, 
 
 ### [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/) ⭐️⭐️
 
@@ -10,23 +45,6 @@
 
 ### [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/) ⭐️⭐️⭐️
 
-- My approach was to find both p and q and return their parent stack and compare. Not efficient
-- This approach is very hard to think :
-
-``` java
-public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        
-    if(root == null || root.val == p.val || root.val == q.val) return root;
-
-    TreeNode left =  lowestCommonAncestor(root.left,p,q);
-    TreeNode right =  lowestCommonAncestor(root.right,p,q);
-    
-    if(left == null) return right ;
-    if(right == null) return left;
-    
-    return root;
-}
-```
 
 ### [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/description/)
 
