@@ -35,7 +35,7 @@
             }
         }
   ```
-  - For preorder, 
+  - For preorder, we need to set the thread to point to curr node's right so that once the left is traversed, we move to the right child of the curr tree
 
 ### [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/) ⭐️⭐️
 
