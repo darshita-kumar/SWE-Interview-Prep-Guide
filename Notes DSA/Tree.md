@@ -36,7 +36,69 @@
         }
   ```
   - For preorder, we need to set the thread to point to curr node's right so that once the left is traversed, we move to the right child of the curr tree
+<br>
 
+---
+---
+
+## Iterative Tree Traversal
+
+### Iterative pre-order
+  - Maintain a stack and push root to it.
+  - Pop elements, add to result list and add it's right child first and then left (Left to be processed first)
+
+### Iterative in-order
+  - Maintain a stack such that all left children are processed first. Code:
+
+    ```java
+    class Solution {
+        public List<Integer> inorderTraversal(TreeNode root) {
+            List<Integer> result = new ArrayList<>();
+            if(root == null) return result;
+            Stack<TreeNode> stack = new Stack<>();
+            TreeNode next = root;
+            while(!stack.isEmpty() || next != null) {
+                while(next!=null) {
+                    stack.push(next);
+                    next = next.left;
+                }
+                next = stack.pop();
+                result.add(next.val);
+                next = next.right;
+            }
+            return result;
+        }
+    }
+    ```
+
+### Iterative post-order
+  - Maintain a stack such that both left and right children are processed first. Code:
+    ```java
+    class Solution {
+        public List<Integer> postorderTraversal(TreeNode root) {
+            List<Integer> result = new ArrayList<>();
+            Stack<TreeNode> stack = new Stack<>();
+            TreeNode curr = root;
+            while(!stack.isEmpty() || curr!=null) {
+                if(curr!=null) {
+                    result.add(curr.val);
+                    stack.push(curr);
+                    curr = curr.right;
+                } else {
+                    curr = stack.pop();
+                    curr = curr.left;
+                }
+            }
+            Collections.reverse(result);
+            return result;
+        }
+    }
+    ```
+
+<br>
+
+---
+---
 ### [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/) ⭐️⭐️
 
 - if both p and q are bigger recurse of root.right
