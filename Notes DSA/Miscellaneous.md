@@ -1,5 +1,9 @@
 # Other Alogs/Tricks
 
+## Concept of P, NP, NP Hard, NP Complete
+  - https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
+    
+
 ## Sieve of Eratosthenes : Find all Prime Numbers
   - Used to find all prime numbers in a range
   - https://takeuforward.org/data-structure/sieve-of-eratosthenes-find-all-prime-numbers
