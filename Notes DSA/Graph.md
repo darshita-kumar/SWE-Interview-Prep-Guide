@@ -35,9 +35,9 @@
   - $O(V+E)$
   - Calculate indegree of each node 
   - Start by pushing indegree=0 nodes to queue (no need for visited array)
-  - For each node, traverse it's neighbours and reduce indegree of each neighbour by 1
+  - For each node polled from queue, add this to result topoSort arrayList
+  - Traverse polled node's neighbours and reduce indegree of each neighbour by 1
   - If any neighbour's indegree becomes 0, push it to queue
-  - When pushing to queue add this to result topoSort arrayList
 
 <br>
 
