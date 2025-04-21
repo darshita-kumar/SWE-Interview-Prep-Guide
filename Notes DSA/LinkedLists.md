@@ -5,7 +5,7 @@
 #### Tortoise and Hare Algorithm
   - https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/
   - Move slow pointer one step at a time and fast pointer by 2 steps. If at some point they meet, cycle is found
-  - Otherwise either fast==null (odd length ll) || fast.next==null (even length ll) is encountered.
+  - Otherwise either fast==null (odd length linkedlist) || fast.next==null (even length linkedlist) is encountered.
 
 <br>
 
