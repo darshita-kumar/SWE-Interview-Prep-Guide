@@ -5,7 +5,7 @@
 #### Points to remember 
   - TC: O(nlogn), SC: O(1)
   - Choose a pivot. Find it's correct position in the array
-  - Place all elements smaller than pivot to it's left and all elements>pivot to its right.
+  - Place all elements<=pivot to it's left and all elements>pivot to its right.
   - Place pivot at correct position.
   - Recursively do the above now for the left half of the array (left of pivot) and right half (right of pivot)
   - Ref:https://takeuforward.org/data-structure/quick-sort-algorithm/
