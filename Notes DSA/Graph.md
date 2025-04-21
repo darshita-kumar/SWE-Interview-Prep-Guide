@@ -27,7 +27,8 @@
    - Concept: An ordering in which if there exists an edge from u to v then u appears before v in the ordering
    - Why only DAGs? Because in an undirected graph the above condition cannot be satistified
    - Why not in cyclic graphs? If a cycle exists then u cannot always be before v in the ordering (go in circles)
-   - There can be multiple valid topological orderings for a graph 
+   - There can be multiple valid topological orderings for a graph
+   - Topo sort can be done in DAGs containing disconnected components too, where each component is like a separate DAG in itself. You will still have all the nodes in the topo sort of this graph
      
 #### Recursive
   - $O(V+E)$
