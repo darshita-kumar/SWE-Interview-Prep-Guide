@@ -3,11 +3,13 @@
 ### Note: While performing traversals always consider that the graph might have disconnected components.
 <img width="925" alt="Screenshot 2025-04-13 at 5 14 12 PM" src="https://github.com/user-attachments/assets/d043db93-5935-4640-96c8-6f078d6c6d8f" />
 
-### BFS
-   - $O(V+E)$
-   - Print a node then push all unvisited neighbours into a queue (mark them visited before pushing), repeat until queue is empty
-
 ### DFS
+   - $O(V+E)$
+   - Print a node then process all it's neighbours recursively
+   - For each recursive call, check if visited, then return
+   - Else mark as visited and process unprocessed neighbours
+
+### BFS
   - $O(V+E)$
   - Maintain a visited array and a queue. Initialize with 1st node
   - Loop on all nodes and push each of it's neighbour to queue
