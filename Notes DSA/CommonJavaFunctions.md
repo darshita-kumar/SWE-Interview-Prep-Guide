@@ -67,6 +67,18 @@
 
 #### Learn about split function regex
 
+#### Sorting an array with custom comparator
+
+```java
+Arrays.sort(timings, new Comparator<int[]>() {
+    public int compare(int[] a, int[] b) {
+        if(a[0]==b[0])
+            return Integer.compare(b[1], a[1]);
+        return Integer.compare(a[0], b[0]);
+    }
+});
+```
+
 #### Print an Array
 
 ``` java
