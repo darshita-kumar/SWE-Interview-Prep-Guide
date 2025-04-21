@@ -11,4 +11,4 @@
       - int[] does not implement comparator and set will maintain duplicate elements then.
       - So adding a {1,2} twice is like adding 2 different elements to the set, as set won't be able to compare the newly added {1,2} and judge it as the same ele as earlier
       - So set will allow duplicates
-      - Instead use Set<Pair> or a custom class which implements comparable
+      - Instead use Pair in set or a custom class which implements comparable
