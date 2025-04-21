@@ -8,6 +8,9 @@
    - Print a node then process all it's neighbours recursively
    - For each recursive call, check if visited, then return
    - Else mark as visited and process unprocessed neighbours
+   - TC = For an undirected graph, O(N) + O(2E),
+   - For a directed graph, TC = O(N) + O(E), (Because for every node we are calling the recursive function once, the time taken is O(N) and 2E is for total degrees as we traverse for all adjacent nodes.)
+   - Space Complexity: O(3N) ~ O(N), Space for dfs stack space, visited array and an adjacency list.
 
 ### BFS
   - $O(V+E)$
