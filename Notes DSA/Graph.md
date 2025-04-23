@@ -235,7 +235,7 @@ private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[],
 ---
 ---
 
-### Inteeresting questions
+### Interesting questions
 1. Sequence reconstruction:
    <img width="1163" alt="Screenshot 2025-04-23 at 11 00 17 AM" src="https://github.com/user-attachments/assets/949cdf12-ad64-42a5-a21f-3f61a878a885" />
    <img width="487" alt="Screenshot 2025-04-23 at 11 00 52 AM" src="https://github.com/user-attachments/assets/c8da3252-baf6-4d7b-a52d-70ccd019e58a" />
