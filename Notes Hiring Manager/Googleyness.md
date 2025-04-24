@@ -41,6 +41,27 @@ https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-
 >     - 2nd: Bring numbers/stats into the equation
 >     - 3rd: Repeatability - how did you use the learnings in other situations
 
+-----------
+
+### Sample questions and how to approach:
+
+1. [Disagreement with your manager/leadership?](https://www.youtube.com/watch?v=3rVp7_yvF8o&ab_channel=JeffHSipe-PracticeInterviews)
+   - Restate question as 'had the opportunity to share a diff perspective with my manager/leadership'
+   - Deal in a calm, respectful manner with courage
+   - Highlight your manager's skills
+   - Active listening, add follow up questions
+   - Empathy: He might have been asked to get it done, may be a directive from leaderhip, understanding the historical context, requirements
+   - Ultimately need to go with a solution based approach keeping ego aside, providing alternatives where necessary
+   - State learnings
+2. [Biggest accomplishment:](https://www.youtube.com/watch?v=y9JKsDQrG9k&ab_channel=JeffHSipe-PracticeInterviews)
+   - Use a work example
+   - Example should be dynamic -> show problem solving skills, communication, drive results with data, navigating ambiguity, flexible, team player
+   - Learnings and it's applications important
+   - Show passion in your answer, stay positive
+3. [Difficult coworker](https://www.youtube.com/watch?v=0GmrpPR1_Xw&ab_channel=JeffHSipe-PracticeInterviews)
+   - Flip to positive
+   - Empathy imp
+   - Results, learnings
 
 -----------
 
