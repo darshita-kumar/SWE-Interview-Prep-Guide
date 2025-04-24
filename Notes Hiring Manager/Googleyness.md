@@ -100,7 +100,7 @@ https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-
         - Held architectural review discussions with the entire team and product managers, incorporated their suggestions in my design
         - Once I had everything ready, I set a timeline for the delivery of the system and worked to fulfill it
         - I worked along the timelines and saw it to completion
-    - Results:
+   - Results:
         - Reduced duplication of 1.5 million records and boosted sales by 42% as predicted
         - It improved customer browsing experience
         - Due to it's robustness, the functionality was leveraged for the Chile market as well
