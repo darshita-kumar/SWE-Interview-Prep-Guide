@@ -1,6 +1,11 @@
 # Hiring Manager Round - Question Bank for Software Engineer 2 Role
 
-> **General Tips:** Use the STAR method (Situation, Task, Action, Result) to structure your responses.
+Check below collection:
+https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-by-55sh/
+
+> **General Tips:** Use:
+> STAR method (Situation, Task, Action, Result) for behavioural questions
+> CFAS method (Clarity, Framework, Assumption, Solution) for hypothetical questions
 
 ---
 
