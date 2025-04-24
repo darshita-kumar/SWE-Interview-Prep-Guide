@@ -45,4 +45,63 @@ https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-
 -----------
 
 ### My events to speak about:
-  - 
+
+1. Dedup logic implementation
+   - Task/Situation:
+       - Tasked with the creation of a system which defines the rules for the priority of certain data over another
+       - It involved creation of a decision tree for the Mexico market data
+       - A business ask, given that there was no uniformity in the prority of data between various sources
+   - Action:
+       - I started by examining the structure of the existing system in which this logic was required to be emdedded
+       - Thereafter, I held discussions with the critical stakeholders as the impact would be huge
+       - The system was required to be robust as the priority rules could change at any point of time owing to a change in business requirements
+       - I examined the legacy systems in order to understand how this task was being performed by them. The only problem with them was: they were rigid systems with no flexibiity
+       - I took suggestions from my seniors about the approach to be taken and created an archtecture for the sub-system
+       - Held architectural review discussions with the entire team and product managers, incorporated their suggestions in my design
+       - Once I had everything ready, I set a timeline for the delivery of the system and worked to fulfill it
+       - Simulatenously we also came out with a phased rollout plan to minimise impact to the customers,
+       - Based on the success of the rollout and feedback received during it, we rolled out the complete feature to production
+    - Results:
+       - The system gave the business better control over what data to show on the website
+       - The tool led to uniformity in the data priority rules, governing over 85+ million records for the MX market
+       - Due to it's robustness, it was leveraged as a tool for the Chile market as well as Bodega market, defining the rules for over a million records
+       - Best part? The business could ask for a flip in the priority of one data source to another any time
+         
+2.Variants functionality
+    - Task/Situation:
+        - To be able to group data in the Mexico market leading to a better customer experience, similar to certain competitors
+        - It was a business ask which was predicted to boost sales by a whopping 40% 
+    - Action:
+        - The US market had already implemented this functionality
+        - My task was to build a similar data pipeline, so I studied the implementation aspects in the US market
+        - Thereafter, I held discussions with the critical stakeholders and product managers to understand and document the requirement so that I don't leave any gaps
+        - I took suggestions from my seniors about the approach to be taken and created an archtecture for the sub-system
+        - Held architectural review discussions with the entire team and product managers, incorporated their suggestions in my design
+        - Once I had everything ready, I set a timeline for the delivery of the system and worked to fulfill it
+        - I worked along the timelines and saw it to completion
+    - Results:
+        - Reduced duplication of 1.5 million records and boosted sales by 42% as predicted
+        - It improved customer browsing experience
+        - Due to it's robustness, the functionality was leveraged for the Chile market as well
+        
+3. Badging tool
+    - Task/Situation:
+        - 
+    - Action:
+    - Results:
+
+4. Canada BVSHELL consumption job
+    - Task/Situation:
+      - Consumption of 800 million records via a data pipeline without impacting the downstream systems and choking their pipelines
+    - Action:
+      - The challenge was learning a new technology and being able to use it efficiently in a production environment with huge amounts of data
+    - Results:
+      - 
+
+5. Kafka configs fine tuning
+   
+6. EA launch
+    - Task/Situation:
+      - 
+    - Action:
+    - Results:
