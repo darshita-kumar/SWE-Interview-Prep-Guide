@@ -68,10 +68,10 @@ https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-
        - Best part? The business could ask for a flip in the priority of one data source to another any time
          
 2.Variants functionality
-    - Task/Situation:
-        - To be able to group data in the Mexico market leading to a better customer experience, similar to certain competitors
-        - It was a business ask which was predicted to boost sales by a whopping 40% 
-    - Action:
+   - Task/Situation:
+       - To be able to group data in the Mexico market leading to a better customer experience, similar to certain competitors
+       - It was a business ask which was predicted to boost sales by a whopping 40% 
+   - Action:
         - The US market had already implemented this functionality
         - My task was to build a similar data pipeline, so I studied the implementation aspects in the US market
         - Thereafter, I held discussions with the critical stakeholders and product managers to understand and document the requirement so that I don't leave any gaps
@@ -85,12 +85,26 @@ https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-
         - Due to it's robustness, the functionality was leveraged for the Chile market as well
         
 3. Badging tool
-    - Task/Situation:
-        - 
+   - Task/Situation:
+        - Introduction of labels functionality in Mexico market
+        - Ideally a tedious task for business as it involved the manual creation of labels in the legacy systems
     - Action:
+         - Understanding pain points: The legacy systems offered a poor User Interface with extremely slow processing speeds and TTL for the labels
+         - I needed to build a faster, easy to use system for the sellers
+         - I worked closely and collaborated with product to obtain the requirements from the end-users of the system
+         - Chalked out the architecture in a few, raw, whiteboarding sessions with my team lead and architect
+         - Documented, presented, incorporated reviews, etc.
+         - Reasearched and found a tool being used for it in the Canada market
+         - Decided to leverage it and built the system according to the timeline provided earlier
+         - Provided the training documentation and a short presentation about how the tool has to be used
+         - Conducted a pilot for a few labels in production while also demonstrating the use of the tool
     - Results:
+         - Successfully made the process of badge creation faster and easy for the business users
+         - Great impact in the Hot Sale season
+         - Received a Bravo award for it
+         - Later tool was leveraged for a new market called 'Sams' which was onboarded into our system
 
-4. Canada BVSHELL consumption job
+5. Canada BVSHELL consumption job
     - Task/Situation:
       - Consumption of 800 million records via a data pipeline without impacting the downstream systems and choking their pipelines
     - Action:
@@ -98,9 +112,9 @@ https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-
     - Results:
       - 
 
-5. Kafka configs fine tuning
+6. Kafka configs fine tuning
    
-6. EA launch
+7. EA launch
     - Task/Situation:
       - 
     - Action:
