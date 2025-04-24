@@ -4,7 +4,7 @@ Check below collection:
 https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-by-55sh/
 
 > **General Tips:** Use:
-> STAR method (Situation, Task, Action, Result) for behavioural questions
+> STAR method (Situation, Task, Action, Result) for behavioural questions  AND 
 > CFAS method (Clarity, Framework, Assumption, Solution) for hypothetical questions
 
 ---
