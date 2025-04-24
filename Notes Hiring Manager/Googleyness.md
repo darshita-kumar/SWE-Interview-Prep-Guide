@@ -133,7 +133,27 @@ https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-
     - Results:
       - 
 
-6. Kafka configs fine tuning
+6. Managing GOI
+   - Situation:
+      - Extended leave of a the lead of an initiative
+      - Current vendors part of the project were also serving notice period
+   - Task:
+      - Requirement to manage the GOI initiative, leading a team of 2 people
+      - Deliver an extremely high focus initiative with tight timelines and multiple ambiguities
+   - Action:
+      - My plan of action first was to onboard quickly while the current initiative lead was still present and ask her as many questions as I could
+      - Gather resources like any documents, presentations, critical emails that I might need
+      - Create a list of ongoing tasks, stories and further releases expected from the team
+      - Making sure both my team members were clear about the current structure of the project and upcoming tasks and their timelines
+      - For each planned initiative which the effort had to be estimated, I created relevant the architecture of and list of requirements
+      - Got the arch and requirements reviewed from the architect and product team and incorporated their suggestions
+      - Provided a timeline of task execution to the program team, while distributing the currently ongoing, estimated tasks among my team members and me
+      - Took inputs from my seniors and team members whenever I was stuck
+   - Results:
+      - The thorough documentation I created, gave me a structure for managing the initiative effectively
+      - A few hiccups: lead to major learnings for me
+      - The documentation led to avoidance of single-point-of-failure since everything was documented and could be referred even in my absence
+      - Major learings: Systematic approach to things, being able to direct my team members and help with their work, while empowering them with critical resources 
    
 7. EA launch
     - Task/Situation:
