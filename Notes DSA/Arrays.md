@@ -108,11 +108,12 @@ public static long maxSubarraySum(int[] arr, int n) {
 ----
 ---
 
-### Difference array
+### Difference array/ Line Sweep
   - Useful article: https://medium.com/@ishankkatiyar162/understanding-difference-array-the-underrated-constant-time-range-update-algorithm-part-1-e432ada7f1f5
   - Constant time range update query, useful for lazy computation
   - Useful in cases like update all values in array index range (3, 10) by val=v
   - Only efficient when there are only update queries and no fetch query (lazy computation)
+  - In case the array is too big to keep a diff array, can use treeMap for line sweep algo. Key=start/end index, value=diffArray value
   - Sample snippet:
 
   ```java
