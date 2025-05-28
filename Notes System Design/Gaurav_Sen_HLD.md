@@ -1,6 +1,6 @@
 # System Design HLD
 
-##Topics:
+## Topics:
 - Vertical scaling: add more resources
 - Preprocessing during non-peak hours to prep for peak hours
 - Resilience: Avoid single-point-of-failure. Keep backups
@@ -8,7 +8,7 @@
 
 ## Scaling
 - Horizontal scaling vs Vertical scaling
-- <img width="1159" alt="Screenshot 2025-05-28 at 11 38 38 PM" src="https://github.com/user-attachments/assets/fee3fe6c-cde1-41e6-b2ee-c8bd4f9163f3" />
+<img width="1159" alt="Screenshot 2025-05-28 at 11 38 38 PM" src="https://github.com/user-attachments/assets/fee3fe6c-cde1-41e6-b2ee-c8bd4f9163f3" />
 
 <br>
 
@@ -58,3 +58,12 @@
 ---
 ---
 
+## Message Queues
+- Async processing using message queues.
+- Functionalities: Scheduling tasks/messages, load balancing, checking for heartbeat, etc.
+<img width="754" alt="Screenshot 2025-05-29 at 12 35 38 AM" src="https://github.com/user-attachments/assets/6935f474-eee4-4811-bb82-75f92fb243cb" />
+
+
+
+
+  
