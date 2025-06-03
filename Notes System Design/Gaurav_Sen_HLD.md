@@ -91,7 +91,7 @@
 - Cassandra, HBase, HDFS, and MongoDB are popular distributed databases. Non-sharded modern databases: Sqlite, Redis (spec in progress), Memcached, and Zookeeper
 - Memcached is not sharded on its own, but expects client libraries to distribute data within a cluster
 
-### Sharding in depth:
+### Sharding in depth:C
 - https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6
 - Shard or Partition Key is a portion of primary key which determines how data should be distributed
 - A logical shard is a collection of data sharing the same partition key. A database node, sometimes referred as a physical shard, contains multiple logical shards
@@ -111,4 +111,18 @@
 -  Hierarchical keys & Column-Oriented Databases:
     - 
 
-  
+<br>
+
+---
+---
+
+## Caching
+- 2 considerations: When to update the cache? Which data to keep in the cache and which to evict?
+- Cache eviction policies: LRU, LFU, Segmented LRU
+- Good eviction policies imp as it prevents thrashing: Example when data is being queried in a sequence and the data which was just evicted is queried immediately
+- Imp: where do you place your cache? Client side? Server side? As a different service queried via APIs?
+- Typically in diff systems, all 3 of the above are used.
+- Distributed caching for a large scale system: Benefits:
+  - (1) cache can scale independently
+  - (2) Deployments are separate
+  - (3) Can use any language etc to write it
