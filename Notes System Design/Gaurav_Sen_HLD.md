@@ -91,7 +91,7 @@
 - Cassandra, HBase, HDFS, and MongoDB are popular distributed databases. Non-sharded modern databases: Sqlite, Redis (spec in progress), Memcached, and Zookeeper
 - Memcached is not sharded on its own, but expects client libraries to distribute data within a cluster
 
-### Sharding in depth:C
+### Sharding in depth:
 - https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6
 - Shard or Partition Key is a portion of primary key which determines how data should be distributed
 - A logical shard is a collection of data sharing the same partition key. A database node, sometimes referred as a physical shard, contains multiple logical shards
@@ -102,14 +102,16 @@
     - Consistent hashing can be used to allow re-sharding of data
 - Dynamic sharding:
     - An external locator service determines the location of entries
-    - more resilient to nonuniform distribution of data. Locators can be created, split, and reassigned to redistribute data
+    - more resilient to non-uniform distribution of data. Locators can be created, split, and reassigned to redistribute data
     - The locator service becomes a single point of contention and failure. Also, locators cannot be cached or replicated simply. Out of date locators will route operations to incorrect databases
     - Hence, consistency is prioritised in locators
 - Entity-groups:
     - Store related entities in the same partition to provide additional capabilities within a single partition
     - This is a popular approach to shard a relational database
 -  Hierarchical keys & Column-Oriented Databases:
-    - 
+    - A primary key is composed of a pair (row key, column key)
+    - Entries with the same partition key are stored together
+    - Column-oriented databases can model a problem such as time series efficiently
 
 <br>
 
@@ -126,3 +128,93 @@
   - (1) cache can scale independently
   - (2) Deployments are separate
   - (3) Can use any language etc to write it
+
+<br>
+
+---
+---
+
+## Single point of failure
+- How to avoid single point of failure: Redundancy to ensure high availability
+- Server failure: Add more nodes
+- DB failure: Use master slave architecture
+- Load balancer/gateway failures: Connect via DNS
+- Region failure: Multiple regions for deployment
+- How to test this? DR tests, e.g. Netflix: Chaos Monkey
+
+<br>
+
+---
+---
+
+## Content Delivery Networks (CDN)
+- Make systems cheaper and faster
+- Like distributing cache around the globe to reduce latency
+- Can store static info on (servers)CDNs across the globe for quick rendering
+- CDNs are service providers which have servers which are cheap and follow region protocols (e.g. a movie can't be shown in US
+- e.g. Amazon CloudFront, Akamai CDN
+
+<br>
+
+---
+---
+
+## Publisher Subscriber Model
+- Fire and forget
+- A lot of responsibilities are decoupled
+- Each consumer can control the rate of consumption, consumer downtime does not affect publisher
+- Simplified interactions, single interface of interaction bw the systems
+- Acknowledgement received from consumers about consumption, 'transaction guarantee of at least once'
+- More scalable
+- Disadvantages: Can lead to poor consistency, so can't use it for mission critical systems like financial systems
+- Idempotency not guaranteed: Idempotency means that applying the same operation multiple times produces the same result as applying it once (e.g. If the first msg consumption fails and if we allow data to reprocess again, if it makes a change to the db then idempotency is lost. e.g. In item-publisher, if kafka offset does't get committed, consumption of same msg twice does not change the db data twice)
+- Used by Twitter, logging systems
+
+<br>
+
+---
+---
+
+## Event-driven systems
+- A little diff from pub-sub model
+- Used by Git, React, Node.js, games, etc.
+- Each service stores event info relevant to itself and other services, so high availablitiy (but less consistency then)
+- Each service's db stores an event log, so you can go back in time and reprocess certain events if required
+- Replacement of an existing service with a new one is easy because all the relevant events are available in the db and can be replayed to bring the new service up-to-date with the one being replaced
+- Transactional guarantee: at least one OR at most one guarantee
+- Disadvantages: less consistency (events stored in 1 system related to another system might become outdated), No SLAs since event driven
+- flow not easy to understand and debug
+
+<br>
+
+---
+---
+
+## NoSQL Databases
+- Used to store schemaless data
+- Not read optimised for reading a specific data value, joins not possible
+- Replication factor: For distibuted databases having the same data in multiple nodes for high availability
+- Quorum: Due to multiple nodes having the data, reads are optimised now and data can be read from any cluster. A quorum makes sure the data is not stale. Say replication factor is 3, then 2 nodes may be asked for consenses before returning a read value for a data point, in case the original write cluster goes down.
+- Cassandra: SST (Sorted String Tables):
+  - Cassandra stores all writes in-memory first as a log file.
+  - Data written in a sequential fashion, with multiple entries allowed for a key, where table is sorted based on key
+  - Periodically, this data is dumped to the clsuters where the data has to be written
+  - SSTs are immutable
+  - Compaction: mergeSort 2 SSTs for the same key before writing to db, so some records get deleted to optimise for space
+  - How to deal with deleted records? Cassandra places a tombstone on these (like a flag)
+
+<br>
+
+---
+---
+
+## How DBs scale writes:
+- https://www.youtube.com/watch?v=_5vrfuwhvlQ&ab_channel=GauravSen
+- Some NoSQL databases use B+ trees : good insertion and search times, Some use SSTs
+- Other methods: LSM, Fractal trees
+- Working of SST explained:
+- Basic idea: Used linkedLists (like logs) to insert at the end so writes are fast. But then reads become extremely slow. So, use sorted arrays for reads (binary search to read)
+- Use multiple sorted arrays to store data because 1 sorted array only will make sorting slow as data increases.
+- From time to time, can merge sorted arrays and use a **bloom filter** on each sorted array to find the data to read (as too many sorted arrays will again make reads slow)
+- The above sorted arrays are called Sorted String Tables (SSTs), the merging of the sorted arrays is Compaction
+  
