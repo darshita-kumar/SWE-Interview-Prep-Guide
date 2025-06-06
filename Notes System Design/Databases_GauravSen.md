@@ -72,3 +72,25 @@
 - Use multiple sorted arrays to store data because 1 sorted array only will make sorting slow as data increases.
 - From time to time, can merge sorted arrays and use a **bloom filter** on each sorted array to find the data to read (as too many sorted arrays will again make reads slow)
 - The above sorted arrays are called Sorted String Tables (SSTs), the merging of the sorted arrays is Compaction
+  
+<br>
+
+---
+---
+
+## Consistency in Distributed Systems
+- https://www.youtube.com/watch?v=m4q7VkgDWrM&ab_channel=GauravSen
+- Distributed systems fix the problems of Single point of failure, latency but introduce the problem of consistency
+- Consistency vs Availability is a trade-off
+- How to ensure consistency between 2 servers (when network may be unreliable): Two Generals problem -> infinite loop of ACKs
+- So do writes on only 1 db: Master slave architecture (leader-follower), read from all. But now need to sync data to all slaves
+- See 2 phase commit protocol: From Master: Prepare request -> wait for ACKs and then commit -> wait for ACKs
+- <img width="1230" alt="Screenshot 2025-06-06 at 11 33 49 PM" src="https://github.com/user-attachments/assets/7bf7d8f6-8f47-487e-87bc-ab46ef1b298c" />
+- High Consistency: place locks on all DBs in the distributed structure and wait for writes, don't allow reads. This compromises availability
+- Most systems: Evenutal consistency
+
+<br>
+
+---
+---
+
