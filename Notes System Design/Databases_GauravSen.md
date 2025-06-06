@@ -1,3 +1,7 @@
+# Database Concepts
+
+<img width="1035" alt="Screenshot 2025-06-06 at 9 37 11 PM" src="https://github.com/user-attachments/assets/e2e67f26-f737-4a5a-9e2d-55f95ee7bdca" />
+
 ## Sharding
 - Types of partitioning: Horizontal(Sharding), Vertical, Hierarchical
 - Vertical partitioning is normalisation. Implemented in application logic
