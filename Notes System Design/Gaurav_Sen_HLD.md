@@ -114,7 +114,7 @@
 - Like distributing cache around the globe to reduce latency
 - Can store static info on (servers)CDNs across the globe for quick rendering
 - CDNs are service providers which have servers which are cheap and follow region protocols (e.g. a movie can't be shown in US
-- e.g. Amazon CloudFront, Akamai CDN
+- e.g. Amazon CloudFront, Akamai CDN, Cloudinary
 
 <br>
 
