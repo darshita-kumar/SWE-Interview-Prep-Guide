@@ -11,6 +11,7 @@
 
 ### CDNs
 - Cloudinary
+- AWS Cloudfront
 
 ### Protocols
 - TCP
