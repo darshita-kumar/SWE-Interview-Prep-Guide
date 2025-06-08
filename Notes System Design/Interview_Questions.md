@@ -12,6 +12,8 @@
 ### CDNs
 - Cloudinary
 - AWS Cloudfront
+- Akamai
+- OpenConnect (Netflix)
 
 ### Protocols
 - TCP
