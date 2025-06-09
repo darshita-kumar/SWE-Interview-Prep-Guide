@@ -2,6 +2,7 @@
 
 ## Index
 ### Databases
+- https://www.youtube.com/watch?v=6GebEqt6Ynk&ab_channel=Jordanhasnolife
 - Write heavy: Cassandra (masterless replication schema)
 - Read heavy: bigTable
 - Storing videos: Object storage like Amazon S3, GCS
