@@ -3,6 +3,14 @@
 ### Note: While performing traversals always consider that the graph might have disconnected components.
 <img width="925" alt="Screenshot 2025-04-13 at 5 14 12 PM" src="https://github.com/user-attachments/assets/d043db93-5935-4640-96c8-6f078d6c6d8f" />
 
+For traversing in all 4 directions surrounding a cell in a 2D matrix:
+int[] rowAdd = {-1,1,0,0};
+int[] colAdd = {0,0,-1,1};
+
+8 directions (diagonals allowed):
+int[] rowAdd = {-1,1,0,0, -1,-1,1,1};
+int[] colAdd = {0,0,-1,1, -1,1,-1,1};
+
 ### DFS
    - $O(V+E)$
    - Print a node then process all it's neighbours recursively
