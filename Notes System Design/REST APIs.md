@@ -2,6 +2,7 @@
 
 ### Calling REST APIs from an external service
 <img width="834" alt="Screenshot 2025-06-14 at 7 51 52 PM" src="https://github.com/user-attachments/assets/3fbeb6cd-3531-441b-841f-db0c11c4b046" />
+
 ```
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -85,3 +86,5 @@ public class Main {
 
 ---
 ---
+
+
