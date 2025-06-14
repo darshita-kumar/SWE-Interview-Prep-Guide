@@ -1,4 +1,4 @@
-## Writing REST APIs using Java
+## Writing/Calling REST APIs using Java
 
 ### Calling REST APIs from an external service
 <img width="834" alt="Screenshot 2025-06-14 at 7 51 52 PM" src="https://github.com/user-attachments/assets/3fbeb6cd-3531-441b-841f-db0c11c4b046" />
@@ -87,4 +87,75 @@ public class Main {
 ---
 ---
 
+## Writing REST end points in an application
 
+Example:
+```
+package com.booking.recruitment.hotel.controller;
+
+import com.booking.recruitment.hotel.exception.ElementNotFoundException;
+import com.booking.recruitment.hotel.model.Hotel;
+import com.booking.recruitment.hotel.service.HotelService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/hotel")
+public class HotelController {
+  private final HotelService hotelService;
+
+  @Autowired
+  public HotelController(HotelService hotelService) {
+    this.hotelService = hotelService;
+  }
+
+  @GetMapping
+  @ResponseStatus(HttpStatus.OK)
+  public List<Hotel> getAllHotels() {
+    return hotelService.getAllHotels();
+  }
+
+  @GetMapping(path = "/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public Hotel getHotelById(@PathVariable Long id) {
+    Optional<Hotel> hotelOptional = hotelService.getHotelById(id);
+    return hotelOptional.orElseThrow(() -> new ElementNotFoundException("Hotel not found"));
+  }
+
+  @DeleteMapping(path = "/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public Hotel deleteHotelById(@PathVariable Long id) {
+    return hotelService.deleteHotelById(id);
+  }
+
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public Hotel createHotel(@RequestBody Hotel hotel) {
+    return hotelService.createNewHotel(hotel);
+  }
+
+    // Below is written in a diff appln
+    @GetMapping("/book")
+    public ResponseEntity<BookingResponseDto> bookHotel(@RequestParam("city")String city, @RequestParam("date")String date,
+                                                        @RequestParam("guests")int guests, @RequestParam("hotelName")String hotelName) {
+        BookingResponseDto bookingResponseDto = bookingService.bookHotelForCityDateAndGuests(city, LocalDate.parse(date), guests, hotelName);
+        return new ResponseEntity<>(bookingResponseDto, HttpStatus.OK);
+    }
+}
+
+```
+Spring annotations to note:
+1. @RestController -> defines the class as a REST controller
+2. @RequestMapping("/hotel") -> provides the path in the application for the APIs
+3. @GetMapping, @PostMapping @DeleteMapping
+4. @ResponseStatus -> Specifies the reponse status if API executes properly
+5. HttpStatus class: holds status values like 200, 404, etc.
+6. @PathVariable -> used in case of a path variable in the API like id, so something like localhost:8080/hotel/id/123 -> here 123 is the value of id
+7. @RequestParam -> localhost:8080/hotelInfo/searchWithBudget?city=Paris&budget=1000 -> here city and budget are request params
+8. @RequestBody -> usually for POST requests where a body is passed, can be directly mapped to a Java class
+9. @RequestHeader 
