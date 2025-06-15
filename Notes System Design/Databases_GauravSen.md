@@ -137,4 +137,8 @@
    HashMap bad for range queries, no indexes
 6. Neo4j
    <img width="1239" alt="Screenshot 2025-06-15 at 2 05 19 PM" src="https://github.com/user-attachments/assets/5762ead2-a800-43c8-9297-8717533f4090" />
-
+   Pointers from each data point to all connecting data points (like an edge)
+7. TimeScaleDB/Apache Druid: time series db, maintains order relative to timestamp
+   Use LSM trees and SSTables, but more efficient
+   Split table into many smaller chunk indexes, so entire index is stores in memory, so CPU cache is used efficiently
+   Enables deletion of data easily as opposed to the tombstone method of deletion (because need to wait for SSTables to merge for deleting tombstone)
