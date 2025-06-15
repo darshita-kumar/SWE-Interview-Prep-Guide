@@ -94,3 +94,47 @@
 ---
 ---
 
+## Selecting the right db
+- https://www.youtube.com/watch?v=6GebEqt6Ynk&t=59s&ab_channel=Jordanhasnolife
+- 2 types of DBs: (1) Use LSM trees and SSTables  (2) Use B-trees
+
+### LSM trees and SSTables
+- <img width="1252" alt="Screenshot 2025-06-15 at 12 34 05 PM" src="https://github.com/user-attachments/assets/f451c898-69f7-47ef-8623-35b0fd549c26" />
+- Not as good as B-Trees for reads
+- Writes go to RAM so they are fast
+- Since the keys are sorted, can use Binary search to look for a record
+- Can also use Bloom filters to speed up the searches
+
+### B-Trees
+- Implemented completely on disk
+- <img width="1244" alt="Screenshot 2025-06-15 at 12 37 17 PM" src="https://github.com/user-attachments/assets/9aee9956-3c63-4623-ba86-c9187a88421d" />
+
+### Replication
+- Single leader: if primary goes down, a new primary is elected from the workers (no write conflicts, lesser throughpput)
+- Multi-leader: multiples replicas can be written to, when reading a value, a quorum is used to decide the correct value (Data consistency is an issue, write conflicts)
+<img width="1251" alt="Screenshot 2025-06-15 at 12 39 04 PM" src="https://github.com/user-attachments/assets/448d81a3-dac3-4e50-ac01-acc8294fc17a" />
+<img width="1241" alt="Screenshot 2025-06-15 at 12 42 28 PM" src="https://github.com/user-attachments/assets/653638dd-a6e3-4fc4-a470-a72a3654b5a0" />
+
+### SQL-DBs
+- Better for normalisation, Joins, reads. But slow writes
+- ACID, use B-Trees, guarantee correctness
+- A lot of times writes may be to diff DBs in diff nodes, this causes issues in scaling. Need to use 2-phase-commit protocol to resolve this
+- Distributed transations are very difficult to implement
+- e.g. Banking transactions, job-scheduling
+
+### No-SQL DBs
+1. Mongo DB
+2. Cassandra DB
+   <img width="1233" alt="Screenshot 2025-06-15 at 1 52 46 PM" src="https://github.com/user-attachments/assets/6ce89f59-10d6-4ebf-8af1-525ca21dae80" />
+   Last write times are not reliable unless a global GPS clock is used
+   Okay to use if consistency can be compromised
+3. Riak: same as Cassandra, but solves the problem of conflict resolution well, key-value store
+4. Apache HBase
+    <img width="1233" alt="Screenshot 2025-06-15 at 1 57 18 PM" src="https://github.com/user-attachments/assets/e32827e9-bd19-4157-9c30-5aa0fd36f55f" />
+5. Memcached, Redis: implemented in memory, not good DBs but caching, use hashmap
+   Redis: supports geosharding
+   <img width="1230" alt="Screenshot 2025-06-15 at 2 01 36 PM" src="https://github.com/user-attachments/assets/01497e99-054b-4fa9-b207-5b556ef2b5d0" />
+   HashMap bad for range queries, no indexes
+6. Neo4j
+   <img width="1239" alt="Screenshot 2025-06-15 at 2 05 19 PM" src="https://github.com/user-attachments/assets/5762ead2-a800-43c8-9297-8717533f4090" />
+
