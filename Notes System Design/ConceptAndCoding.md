@@ -65,4 +65,21 @@
 - *Challenges:*
     - Maintaining consistency between the read and write models.
     - Ensuring the read model is up-to-date with changes in the write model.
- 
+
+<br>
+
+---
+---
+
+### Back of the envelope estimation cheat sheet
+<img width="579" alt="Screenshot 2025-06-16 at 4 24 40 PM" src="https://github.com/user-attachments/assets/48054ab1-1a1a-4a12-be8a-960444eae9c9" />
+If we have say 5 million Users, each user generating 2Kb of data then: 5M (M=10^6) * 2Kb (Kb=10^3) = 10Gb (Gb=10^9) of storage
+
+Other estimates:
+1. Character - 2 byte
+2. Long/Double - 8 byte
+3. Image - 300 Kb
+4. Video - 100-300 Mb/hour 
+5. Audio - 5 Mb/min
+6. Consider 1 day=24*60*60s = 86400 secs ~ 1,00,000 secs
+
