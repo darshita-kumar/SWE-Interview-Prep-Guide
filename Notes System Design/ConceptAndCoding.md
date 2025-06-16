@@ -73,6 +73,7 @@
 
 ### Back of the envelope estimation cheat sheet
 <img width="579" alt="Screenshot 2025-06-16 at 4 24 40 PM" src="https://github.com/user-attachments/assets/48054ab1-1a1a-4a12-be8a-960444eae9c9" />
+
 If we have say 5 million Users, each user generating 2Kb of data then: 5M (M=10^6) * 2Kb (Kb=10^3) = 10Gb (Gb=10^9) of storage
 
 Other estimates:
