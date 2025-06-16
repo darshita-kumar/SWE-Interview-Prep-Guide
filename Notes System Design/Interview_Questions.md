@@ -85,3 +85,14 @@
 - ![image](https://github.com/user-attachments/assets/f7f8f9d8-9e6e-41d2-b108-a1ffbb2e4882)
 
 - More about geohashes: Doordash (Swiggy) design - https://www.youtube.com/watch?v=iRhSAR3ldTw&ab_channel=GauravSen
+
+## Design Rate-Limiter
+It has 5 Algorithms:
+1. Token Bucket Algorithm
+2. Leaking Bucket Algorithm - uses queue for constant rates of serving requests, so not good for bursts of traffic
+3. Fixed Window Counter Algorithm - edges of windows are vulnerable to 2x requests
+4. Sliding Window Logs Algorithm 
+5. Sliding Window Counter Algorithm
+<img width="1238" alt="Screenshot 2025-06-16 at 10 52 46 PM" src="https://github.com/user-attachments/assets/0daced6f-897e-400d-ba5f-6a717829fc72" />
+Redis is mostly single-threaded and handles concourrency well. Single-leader replication preferred for fast writes, keep everything in memory (Redis)
+
