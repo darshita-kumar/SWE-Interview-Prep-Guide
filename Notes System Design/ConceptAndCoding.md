@@ -84,3 +84,68 @@ Other estimates:
 5. Audio - 5 Mb/min
 6. Consider 1 day=24*60*60s = 86400 secs ~ 1,00,000 secs
 
+<br>
+
+---
+---
+
+## High-Availability systems
+(1) Active passive architecture
+- Applications and datacentres in 2 regions
+- 1 is active region, other is for Disaster Recovery (DR)
+- All DB writes in primary region, secondary is only for reads (replicas)
+- Disadvantage: latency & when primary region fails the failover to DR region will lead to db requests getting dropped
+  
+(2) Active Active architecture
+- Both read and writes can be done in both regions
+- Both the Dbs are synced, this can cause conflicts in some rows. Conflict resolution is done
+
+<br>
+
+---
+---
+
+## Proxy vs Reverse Proxy
+(1) Proxy: 
+- Sits between a network of clients and the outside world
+- Protects the *client IPs* from the outside world
+- Can group diff requests for the same resource coming from 2 diff clients in the network and fetch the response for them
+- Can act as VPN and fetch restrictive data
+- Security of the client group: can restrict access to certain resources while fething them
+- Can cache data
+- Works at application layer, each application will need it's own proxy
+
+(2) Reverse Proxy:
+- Protects the *server IPs* from the outside world, protects server IPs
+- Helps defend the servers from attacks like DDoS
+- CDN is a type of reverse proxy, so cache also available
+- Reduces latency due to better geo-location and cache
+- Can do load-balancing, logging
+
+(3) VPN:
+- Creates a tunnel between client and server
+- Encrypts data in the tunnel, hence more than a simple proxy
+
+(4) Load Balancer:
+- Reverse proxy can act as a load balancer but vice-versa is not true
+- Load balancer only needed in case of multiple servers, but reverse proxy is still needed for masking IP of the server
+
+(5) Firewall:
+- Scans packets to allow only certain type of data to pass through it based on certain rules
+- Works on network layer, no need to add it seprately for each application like proxy
+
+<br>
+
+---
+---
+
+## Distributed transaction handling
+<img width="896" alt="Screenshot 2025-06-17 at 10 20 28 PM" src="https://github.com/user-attachments/assets/4166ec6a-8385-4a25-bc4f-e645721cc425" />
+If a transaction involves only 1 db like reducing money from 1 account and adding to another (2 diff rows in Accounts db) then we can have a single transaction like:
+<img width="444" alt="Screenshot 2025-06-17 at 10 28 03 PM" src="https://github.com/user-attachments/assets/baae782e-9113-4d5c-9160-7769b09cf9a2" />
+
+But in case of multiple distributed DBs:
+(1) 2-phase commit
+<img width="612" alt="Screenshot 2025-06-17 at 11 19 28 PM" src="https://github.com/user-attachments/assets/4b206ae9-785d-4559-9b5e-dd6374779b2d" />
+(2) 3-phase commit
+(3) SAGA
