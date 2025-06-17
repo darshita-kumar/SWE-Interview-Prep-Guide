@@ -85,6 +85,11 @@
 - ![image](https://github.com/user-attachments/assets/f7f8f9d8-9e6e-41d2-b108-a1ffbb2e4882)
 
 - More about geohashes: Doordash (Swiggy) design - https://www.youtube.com/watch?v=iRhSAR3ldTw&ab_channel=GauravSen
+  
+<br>
+
+---
+---
 
 ## Design Rate-Limiter
 It has 5 Algorithms:
@@ -96,3 +101,23 @@ It has 5 Algorithms:
 <img width="1238" alt="Screenshot 2025-06-16 at 10 52 46 PM" src="https://github.com/user-attachments/assets/0daced6f-897e-400d-ba5f-6a717829fc72" />
 Redis is mostly single-threaded and handles concourrency well. Single-leader replication preferred for fast writes, keep everything in memory (Redis)
 
+<br>
+
+---
+---
+
+## Design Idempotent API
+- https://www.youtube.com/watch?v=mI73eTlSqeU&list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7&index=15&ab_channel=Concept%26%26Coding-byShrayansh
+- GET, DELETE, PUT APIs are idempotent in nature
+- But POST is not, it has to be made idempotent with the help of Idempotency key (a UUID)
+- This is because POST API usually involves creation of documents, etc in db which should only be done once
+- (1) Client has to generate Idempotency key and send it in request header,
+- (2) For each operation a new IK should be generated
+- A db stores the IK and it's respective status (something like CREATED, CONSUMED). Consumed will be set only after the API has completed operation
+- Also need to handle POST requests if 2 POST requests are made with the same resource at the same time. To handle this uses locks (Semaphore/ Mutex)
+- To handle distributed systems, this IK logic can be implemented at the cache level too instead of db (since cache sync and access is fast)
+
+<br>
+
+---
+---
