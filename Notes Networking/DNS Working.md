@@ -11,8 +11,10 @@ https://www.youtube.com/watch?v=QVdX34quUgU&list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3E
 
 ### How DNS works:
 Cached locally:
+
 <img width="651" alt="Screenshot 2025-06-21 at 4 00 23 PM" src="https://github.com/user-attachments/assets/7d85b407-c60a-4f3a-957d-5ade393b71e6" />
 Each locally cached record:
+
 <img width="896" alt="Screenshot 2025-06-21 at 4 01 38 PM" src="https://github.com/user-attachments/assets/b6cb5690-1327-410e-aef6-d24d1241414b" />
 
 CNAME works only on sub-domain level.
