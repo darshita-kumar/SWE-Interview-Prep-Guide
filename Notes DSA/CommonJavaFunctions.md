@@ -26,7 +26,7 @@
 - `StringBuilder pattern = new StringBuilder(word)`
 - `append(Object)` 	
 - `toString()`
-- `setChatAt(i,ch)`, `insert(i,Object)`
+- `setCharAt(i,ch)`, `insert(i,Object)`
 - `sb = sb.reverse()` 
 
 
