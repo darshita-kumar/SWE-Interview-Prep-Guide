@@ -17,6 +17,7 @@ Each locally cached record:
 
 <img width="896" alt="Screenshot 2025-06-21 at 4 01 38 PM" src="https://github.com/user-attachments/assets/b6cb5690-1327-410e-aef6-d24d1241414b" />
 
+There are only 13 root level domain servers in the world right now
 CNAME works only on sub-domain level.
 
 ### Recursive method of IP resolution:
