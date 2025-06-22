@@ -20,3 +20,4 @@
 - Uses: 
   - Garbage collector is a daemon thread
   - Auto save feature in editors
+  - Can use for logging 
