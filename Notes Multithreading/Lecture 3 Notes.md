@@ -7,13 +7,16 @@
 
 ## [31. Thread Joining, Daemon Thread, Thread Priority | Multithreading in Java: Part3](https://youtu.be/cdsFwGDVzpg?si=6k3N-QZEBKtF82A8)
 
+![image](https://github.com/user-attachments/assets/1eb56cd4-67dc-47eb-9ab5-b24511c25f68)
+
 ![Markdown Logo](Notes_images/3.1.png)
 
 ![Markdown Logo](Notes_images/3.2.png)
 
 ## Daemon thread 
-- User thread vs Daemon thread 
+- Daemon means: running in async manner
+- User thread vs Daemon thread : Use method setDaemon(true) to make a thread as Daemon thread
 - Daemon thread is alive only until there is atleast one user thread alive
 - Uses: 
   - Garbage collector is a daemon thread
-  - Auto save feature
+  - Auto save feature in editors
