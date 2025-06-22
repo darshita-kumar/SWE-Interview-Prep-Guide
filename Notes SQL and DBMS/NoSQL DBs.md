@@ -13,6 +13,8 @@
 3. Wide-column store
 4. Graph Databases
 
+https://www.youtube.com/watch?v=VfcRxtBKI54&ab_channel=High-PerformanceProgramming
+
 ### Key Value store db
 - Like a hashmap, allow O(1) reads and writes, so used in caches
 - Backed my memory/SSD
@@ -35,5 +37,6 @@
 
 ### Graph Databases
 <img width="781" alt="Screenshot 2025-06-22 at 4 18 16 PM" src="https://github.com/user-attachments/assets/85a7c76c-7ad9-4edd-99a9-fb42b9b4fda9" />
+
 - Graph databases are optimized to represent complex relationships with many foreign keys or many-to-many relationships
 - e.g. Neo4J, FlockDB
