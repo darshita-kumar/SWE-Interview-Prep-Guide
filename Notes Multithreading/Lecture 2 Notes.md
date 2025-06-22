@@ -18,7 +18,8 @@
 
 ![Markdown Logo](Notes_images/2.8.png)
 
-## Note: [👆 Monitor Lock will be at object level. Multiple sync blocks will be shared at object level]()
+## Note: 👆 Monitor Lock will be at object level. Multiple sync blocks will be shared at object level. Each object has only 1 monitor lock, so even if 2 threads are trying to execute 2 diff critical sections of an object, only 1 will acq lock and execute first, while other remains locked for the lock to be released, even if both threads are working on diff methods.
+
 <br>
 
 ![Markdown Logo](Notes_images/2.9.png)
