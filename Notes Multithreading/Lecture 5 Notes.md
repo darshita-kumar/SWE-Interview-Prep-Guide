@@ -12,6 +12,16 @@ ABA problem:
 - This is called ABA problem
 - Can be solved by also taking version of current value into consideration and compare version of read and write before committing
 
+✅ Why CAS over Locks?
+Advantages:
+1. Non-blocking: Threads don’t get stuck waiting.
+2. Faster under high contention.
+3. Avoids context switching overhead.
+
+Disadvantages:
+1. Spinning: In case of contention, threads keep retrying — CPU intensive.
+2. ABA problem: Value may change from A → B → A without detection.
+
 ![Markdown Logo](Notes_images/5.3.png)
 
 ![Markdown Logo](Notes_images/5.4.png)
@@ -19,6 +29,13 @@ ABA problem:
 ![Markdown Logo](Notes_images/5.5.png)
 
 ![Markdown Logo](Notes_images/5.6.png)
+
+AtomicInteger uses lock-free operations i.e. CAS under the hood. It reads the value to be updated from memory, sets it as expected value and calls CAS(expected, actual, newValue)
+Now while(actualValue!=expectedValue) newValue is not set the the variable. This happens on CPU level
+
+Note: ✔️ You don't explicitly read twice in your code,
+❗ But the CPU implicitly reads once during compare, once to check.
+❗ There's only one actual read done at the atomic instruction level — it's not two separate Java-level reads.
 
 ## Volatile vs Atomic 
 - Volatile has no relation with thread safetly
