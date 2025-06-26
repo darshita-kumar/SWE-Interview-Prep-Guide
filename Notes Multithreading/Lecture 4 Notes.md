@@ -1,5 +1,7 @@
 ## [32. Locks and Condition | Java Multithreading Part4 | Reentrant, ReadWrite, Stamped & Semaphore Lock](https://youtu.be/DPob5NLzKFI?si=guM-Khvr05JAydMy)
 
+Good blog: https://medium.com/@amitvsolutions/javas-synchronization-toolkit-the-locking-mechanism-882fbbe57921
+
 ![Markdown Logo](Notes_images/4.1.png)
 
 Shared vs Exclusive locks:
