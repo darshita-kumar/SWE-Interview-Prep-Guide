@@ -18,9 +18,10 @@ Note:
 - Outbound: Microservice → sidecar proxy → destination service’s sidecar proxy.
 
 Popular Service Mesh: istio
+
 Note: Istio has now combined all Control Plane elements into istiod (Need to confirm)
 
-End-to-End Flow of Telemetry Metrics:
+### End-to-End Flow of Telemetry Metrics:
 1. Request passes through the sidecar proxy:
    All inbound and outbound traffic is intercepted by the sidecar proxy (Envoy).
    It observes requests without changing the microservice code (no need to instrument the app).
