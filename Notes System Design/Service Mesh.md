@@ -6,6 +6,11 @@ https://www.youtube.com/watch?v=eIxdHepOeHw&ab_channel=Concept%26%26Coding-byShr
 Everything in yellow in below diagram:
 <img width="1728" alt="Screenshot 2025-06-27 at 10 44 32 AM" src="https://github.com/user-attachments/assets/735bdd3c-b018-4ab5-ab7f-401a3e47c132" />
 
+<br>
+
+---
+---
+
 ### Service mesh architecture:
 <img width="1728" alt="Screenshot 2025-06-27 at 10 41 05 AM" src="https://github.com/user-attachments/assets/91c8c017-189d-424a-8726-4aef728569d8" />
 
@@ -20,6 +25,11 @@ Note:
 Popular Service Mesh: istio
 
 Note: Istio has now combined all Control Plane elements into istiod (Need to confirm)
+
+<br>
+
+---
+---
 
 ### End-to-End Flow of Telemetry Metrics:
 1. Request passes through the sidecar proxy:
@@ -54,4 +64,18 @@ scrape_configs:
 5. Grafana queries Prometheus
 Grafana is configured with Prometheus as a data source.
 Prebuilt dashboards (e.g., Istio dashboards) or custom panels visualize the metrics.
+
+<br>
+
+---
+---
+
+### How is the communication between 2 microservice applications within a network different from the communication with a client from outside the network
+
+<img width="803" alt="Screenshot 2025-06-29 at 1 30 37 AM" src="https://github.com/user-attachments/assets/daa6177f-eabc-482d-8d09-8362f58c3383" />
+
+<img width="837" alt="Screenshot 2025-06-29 at 1 30 57 AM" src="https://github.com/user-attachments/assets/b17d08a2-9a8c-43dc-b651-9745e2686cbc" />
+
+<img width="813" alt="Screenshot 2025-06-29 at 1 31 26 AM" src="https://github.com/user-attachments/assets/9d4a633c-6571-443f-b46e-9e2f14a7f9b2" />
+
 
