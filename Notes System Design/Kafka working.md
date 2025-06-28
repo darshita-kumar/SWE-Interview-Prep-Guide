@@ -99,3 +99,22 @@ This topic is: Replicated, Partitioned, Used by the group coordinator to track c
 - This topic is spread across brokers
 - It uses log compaction to keep only the latest offset per group-topic-partition key
 
+<br>
+
+---
+---
+
+### Is a message with a particular partition key always assigned to one partition only? Or can the assignment change?
+
+Yes — a message with a particular partition key is always assigned to the same partition as long as:
+- The partition count for the topic remains unchanged
+- The partitioner logic (typically hashing) is consistent
+- The producer’s configuration doesn’t change (e.g., no custom partitioner that behaves differently)
+
+<img width="867" alt="Screenshot 2025-06-29 at 12 09 41 AM" src="https://github.com/user-attachments/assets/22937d33-e866-4d89-8eb7-218f07175105" />
+
+Why Consistent Key-to-Partition Mapping Matters
+- Kafka guarantees ordering only within a partition
+- So if all messages with a given key go to the same partition:
+  - You get per-key message ordering
+  - If key-to-partition mapping changes → Ordering breaks across messages with the same key.
