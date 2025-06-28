@@ -37,6 +37,10 @@
 
 ![ChatGPT Image Jun 28, 2025, 11_55_59 PM](https://github.com/user-attachments/assets/06d96bd3-f8ac-41ac-a304-b19ae131d90c)
 
+<br>
+
+---
+---
 
 ### So each consumer subscribes to only one replica of each partition, right? Does it have to be the leader of each partition?
 
@@ -51,6 +55,11 @@
 - Simplicity: No need to coordinate multiple versions of data from replicas.
 - Avoiding stale reads: Followers might lag behind the leader.
 - Kafka does not support follower reads out-of-the-box (as of now), but KIP-392 and KIP-405 aim to allow this in some future enhancements.
+
+<br>
+
+---
+---
 
 ### So who coordinates the writes to the brokers and reads from them? What is the role of zookeeper in all this? Where and how is offset commit data stored for each partition?
 
